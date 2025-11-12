@@ -1,6 +1,6 @@
 // FUNDAMENTOS DE PROGRAMACIÃ“N - PRÃCTICA
-// Nombre del estudiante: _________________
-// Fecha: _________________
+// Nombre del estudiante: Patricio Medina Batun
+// Fecha: 11/11/2025
 
 // ============================================
 // SECCIÃ“N 1: VARIABLES Y TIPOS DE DATOS (10 puntos)
@@ -74,7 +74,7 @@ function celsiusAFahrenheit(celsius) {
 function parOImpar(numero) {
   // TODO: Usa el operador % (mÃ³dulo) para determinar si es par o impar
   // Pista: Un nÃºmero es par si numero % 2 === 0
-  return "";
+  return numero % 2 === 0 ? "par" : "impar";
 }
 
 /**
@@ -84,7 +84,11 @@ function parOImpar(numero) {
  */
 function evaluarNota(nota) {
   // TODO: Implementa la lÃ³gica con if/else
-  return "";
+  if (nota >= 60) {
+    return "Aprobado";
+  } else {
+    return "Reprobado";
+  }
 }
 
 /**
@@ -96,7 +100,7 @@ function evaluarNota(nota) {
  */
 function mayorDeTres(a, b, c) {
   // TODO: Encuentra y retorna el mayor de los tres nÃºmeros
-  return 0;
+  return Math.max(a, b, c);
 }
 
 /**
@@ -106,7 +110,15 @@ function mayorDeTres(a, b, c) {
  */
 function clasificarEdad(edad) {
   // TODO: Implementa la clasificaciÃ³n con if/else if/else
-  return "";
+  if (edad >= 0 && edad <= 17) {
+    return "menor";
+  } else if (edad >= 18 && edad <= 64) {
+    return "adulto";
+  } else if (edad >= 65) {
+    return "mayor";
+  } else {
+    return "edad inválida";
+  }
 }
 
 // ============================================
