@@ -190,13 +190,81 @@ function numerosPares(n) {
 // ============================================
 
 /**
+ * Ejercicio 3.1: Factorial (5 puntos)
+ * Calcula el factorial de un nÃºmero (n! = n * (n-1) * (n-2) * ... * 1)
+ * Ejemplo: factorial(5) = 5 * 4 * 3 * 2 * 1 = 120
+ * @param {number} n - NÃºmero entero positivo
+ * @returns {number} - Factorial de n
+ */
+function factorial(n) {
+  // TODO: Implementa usando un bucle for
+  let resultado = 1;
+  for (let i = 1; i <= n; i++) {
+    resultado *= i;
+  }
+  return resultado
+}
+
+/**
+ * Ejercicio 3.2: Suma de nÃºmeros del 1 al n (4 puntos)
+ * @param {number} n - NÃºmero lÃ­mite
+ * @returns {number} - Suma de 1 + 2 + 3 + ... + n
+ */
+function sumaHastaN(n) {
+  // TODO: Usa un bucle para sumar todos los nÃºmeros desde 1 hasta n
+  let suma = 0;
+  for (let i = 1; i <= n; i++) {
+    suma += i;
+  }
+  return suma;
+}
+
+/**
+ * Ejercicio 3.3: Tabla de multiplicar (5 puntos)
+ * @param {number} numero - NÃºmero para generar su tabla
+ * @returns {Array} - Array con los resultados de numero x 1 hasta numero x 10
+ * Ejemplo: tablaMultiplicar(3) debe retornar [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+ */
+function tablaMultiplicar(numero) {
+  // TODO: Genera un array con la tabla de multiplicar
+  const tabla = [];
+  for (let i = 1; i <= 10; i++) {
+    tabla.push(numero * i);
+  }
+  return tabla;
+}
+
+/**
+ * Ejercicio 3.4: NÃºmeros pares hasta n (6 puntos)
+ * @param {number} n - NÃºmero lÃ­mite
+ * @returns {Array} - Array con todos los nÃºmeros pares desde 2 hasta n
+ * Ejemplo: numerosPares(10) debe retornar [2, 4, 6, 8, 10]
+ */
+function numerosPares(n) {
+  // TODO: Crea un array con todos los nÃºmeros pares hasta n
+  const pares = [];
+  for (let i = 2; i <= n; i += 2) {
+    pares.push(i);
+  }
+  return pares;
+}
+
+// ============================================
+// SECCIÃ“N 4: ARRAYS (25 puntos)
+// ============================================
+
+/**
  * Ejercicio 4.1: Suma de elementos de un array (4 puntos)
  * @param {Array<number>} numeros - Array de nÃºmeros
  * @returns {number} - Suma de todos los elementos
  */
 function sumaArray(numeros) {
   // TODO: Suma todos los elementos del array
-  return 0;
+  let suma = 0;
+  for (let i = 0; i < numeros.length; i++) {
+    suma += numeros[i];
+  }
+  return suma;
 }
 
 /**
@@ -206,7 +274,12 @@ function sumaArray(numeros) {
  */
 function promedioArray(numeros) {
   // TODO: Calcula el promedio (suma total / cantidad de elementos)
-  return 0;
+  if (numeros.length === 0) return 0;
+  let suma = 0;
+  for (let i = 0; i < numeros.length; i++) {
+    suma += numeros[i];
+  }
+  return suma / numeros.length;
 }
 
 /**
@@ -217,7 +290,7 @@ function promedioArray(numeros) {
 function encontrarMaximo(numeros) {
   // TODO: Encuentra y retorna el nÃºmero mÃ¡s grande
   // Pista: Puedes usar Math.max(...numeros) o hacerlo con un bucle
-  return 0;
+  return Math.max(...numeros);
 }
 
 /**
@@ -230,6 +303,11 @@ function encontrarMaximo(numeros) {
 function filtrarMayores(numeros, limite) {
   // TODO: Crea un nuevo array con solo los nÃºmeros mayores al lÃ­mite
   const mayores = [];
+  for (let i = 0; i < numeros.length; i++) {
+    if (numeros[i] > limite) {
+      mayores.push(numeros[i]);
+    }
+  }
   return mayores;
 }
 
@@ -243,6 +321,9 @@ function invertirArray(arr) {
   // TODO: Invierte el orden de los elementos
   // Pista: Puedes usar arr.reverse() o hacerlo manualmente
   const invertido = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    invertido.push(arr[i]);
+  }
   return invertido;
 }
 
@@ -262,6 +343,13 @@ function invertirArray(arr) {
 function crearMatriz(filas, columnas) {
   // TODO: Crea una matriz de filas x columnas llena de ceros
   const matriz = [];
+  for (let i = 0; i < filas; i++) {
+    const fila = [];
+    for (let j = 0; j < columnas; j++) {
+      fila.push(0);
+    }
+    matriz.push(fila);
+  }
   return matriz;
 }
 
@@ -274,7 +362,13 @@ function crearMatriz(filas, columnas) {
 function sumaMatriz(matriz) {
   // TODO: Suma todos los elementos de la matriz
   // NecesitarÃ¡s dos bucles: uno para las filas y otro para las columnas
-  return 0;
+  let suma = 0;
+  for (let i = 0; i < matriz.length; i++) {
+    for (let j = 0; j < matriz[i].length; j++) {
+      suma += matriz[i][j];
+    }
+  }
+  return suma;
 }
 
 /**
@@ -286,7 +380,7 @@ function sumaMatriz(matriz) {
  */
 function obtenerFila(matriz, indiceFila) {
   // TODO: Retorna la fila indicada
-  return [];
+  return matriz[indiceFila];
 }
 
 /**
@@ -299,6 +393,9 @@ function obtenerFila(matriz, indiceFila) {
 function obtenerColumna(matriz, indiceColumna) {
   // TODO: Extrae todos los elementos de la columna indicada
   const columna = [];
+  for (let i = 0; i < matriz.length; i++) {
+    columna.push(matriz[i][indiceColumna]);
+  }
   return columna;
 }
 
@@ -312,6 +409,16 @@ function obtenerColumna(matriz, indiceColumna) {
 function transponer(matriz) {
   // TODO: Crea la matriz transpuesta
   const transpuesta = [];
+  const filas = matriz.length;
+  const columnas = matriz[0].length;
+
+  for (let j = 0; j < columnas; j++) {
+    const nuevaFila = [];
+    for (let i = 0; i < filas; i++) {
+      nuevaFila.push(matriz[i][j]);
+    }
+    transpuesta.push(nuevaFila);
+  }
   return transpuesta;
 }
 
